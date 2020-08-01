@@ -13,5 +13,8 @@ fixtures:
     unattended_upgrades:
       ref: "v5.0.0"
       repo: "https://github.com/voxpupuli/puppet-unattended_upgrades"
+    ntp:
+      ref: "v8.3.0"
+      repo: "https://github.com/puppetlabs/puppetlabs-ntp"
   symlinks:
     vision_base: '#{source_dir}'
