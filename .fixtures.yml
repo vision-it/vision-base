@@ -1,0 +1,17 @@
+---
+fixtures:
+  repositories:
+    stdlib:
+      ref: "v6.3.0"
+      repo: "https://github.com/puppetlabs/puppetlabs-stdlib"
+    sshkeys_core:
+      ref: "2.1.0"
+      repo: "https://github.com/puppetlabs/puppetlabs-sshkeys_core"
+    apt:
+      ref: "v7.4.2"
+      repo: "https://github.com/puppetlabs/puppetlabs-apt"
+    unattended_upgrades:
+      ref: "v5.0.0"
+      repo: "https://github.com/voxpupuli/puppet-unattended_upgrades"
+  symlinks:
+    vision_base: '#{source_dir}'
