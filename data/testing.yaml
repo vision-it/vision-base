@@ -1,4 +1,5 @@
 ---
+vision_base::puppet::environment: 'production'
 vision_base::authorized_keys:
   rick:
     type: 'ssh-ed25519'

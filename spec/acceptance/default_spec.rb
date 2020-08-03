@@ -26,33 +26,33 @@ describe 'vision_base' do
     end
     describe file('/etc/apt/apt.conf.d/50unattended-upgrades') do
       it { is_expected.to exist }
-      it { is_expected.tos be_owned_by 'root' }
+      it { is_expected.to be_owned_by 'root' }
       it { is_expected.to be_mode 644 }
       its(:content) { is_expected.to match 'Puppet' }
     end
   end
 
   context 'Puppet installed' do
-    describe package('puppet') do
+    describe package('puppet-agent') do
       it { is_expected.to be_installed }
     end
-    describe file('/etc/puppet/hiera.yaml') do
+    describe file('/etc/puppetlabs/puppet/hiera.yaml') do
       it { is_expected.to exist }
-      it { is_expected.tos be_owned_by 'root' }
+      it { is_expected.to be_owned_by 'root' }
       it { is_expected.to be_mode 644 }
       its(:content) { is_expected.to match 'Puppet' }
-      its(:content) { is_expected.to match 'pkcs7' }
+      its(:content) { is_expected.to match '_key.pem' }
     end
-    describe file('/etc/puppet/puppet.conf') do
+    describe file('/etc/puppetlabs/puppet/puppet.conf') do
       it { is_expected.to exist }
-      it { is_expected.tos be_owned_by 'root' }
+      it { is_expected.to be_owned_by 'root' }
       it { is_expected.to be_mode 644 }
       its(:content) { is_expected.to match 'Puppet' }
-      its(:content) { is_expected.to match 'development' }
+      its(:content) { is_expected.to match 'production' }
     end
-    describe file('/etc/puppet/code/site.pp') do
+    describe file('/etc/puppetlabs/puppet/site.pp') do
       it { is_expected.to exist }
-      it { is_expected.tos be_owned_by 'root' }
+      it { is_expected.to be_owned_by 'root' }
       it { is_expected.to be_mode 644 }
       its(:content) { is_expected.to match 'Puppet' }
       its(:content) { is_expected.to match 'role' }

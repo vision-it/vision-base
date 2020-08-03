@@ -1,5 +1,4 @@
 ---
-vision_base::puppet::environment: 'production'
 vision_base::puppet::repo_key_id: '6F6B15509CF8E59E6E469F327F438280EF8D349F'
 vision_base::puppet::repo_key: |
   -----BEGIN PGP PUBLIC KEY BLOCK-----

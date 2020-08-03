@@ -11,8 +11,8 @@ hierarchy:
     paths:
       - "secrets/role/%{role}.eyaml"
     options:
-      pkcs7_private_key: "/etc/puppetlabs/puppet/eyaml/private_%{role}_%{environment}.pkcs7.pem"
-      pkcs7_public_key:  "/etc/puppetlabs/puppet/eyaml/public_%{role}_%{environment}.pkcs7.pem"
+      pkcs7_private_key: "/etc/puppetlabs/puppet/eyaml/private_key.pem"
+      pkcs7_public_key:  "/etc/puppetlabs/puppet/eyaml/public_key.pem"
   - name: "Yaml Backend"
     data_hash: yaml_data
     paths:

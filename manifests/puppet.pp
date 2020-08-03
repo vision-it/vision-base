@@ -59,13 +59,6 @@ class vision_base::puppet (
     require => Package['puppet-agent'],
   }
 
-  # Comes with Puppet, but not in use
-  service { 'mcollective':
-    ensure   => stopped,
-    enable   => false,
-    provider => 'systemd',
-  }
-
   # TODO: Puppet Apply Timer
 
 }

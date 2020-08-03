@@ -1,5 +1,11 @@
 # This file is managed by Puppet
 node default {
-  $role = lookup('role', String, 'first', 'default')
+
+  if $facts['role'] {
+    $role = $::role
+  } else {
+    $role = 'default'
+  }
+
   contain "vision_roles::${role}"
 }
