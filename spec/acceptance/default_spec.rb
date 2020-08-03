@@ -32,6 +32,14 @@ describe 'vision_base' do
     end
   end
 
+  context 'SSH configured' do
+    describe file('/etc/ssh/sshd_config') do
+      it { is_expected.to be_owned_by 'root' }
+      it { is_expected.to be_mode 644 }
+      its(:content) { is_expected.to match 'Puppet' }
+    end
+  end
+
   context 'Puppet installed' do
     describe package('puppet-agent') do
       it { is_expected.to be_installed }

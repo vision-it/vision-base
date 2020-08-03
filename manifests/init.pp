@@ -44,4 +44,18 @@ class vision_base (
 
   create_resources('ssh_authorized_key', $authorized_keys, $key_defaults)
 
+  file { '/etc/ssh/sshd_config':
+    ensure  => present,
+    mode    => '0644',
+    content => file('vision_base/sshd_config'),
+    notify => Service['sshd'],
+  }
+
+  service { 'sshd':
+    ensure     => running,
+    enable     => true,
+    hasrestart => true,
+    require    => File['/etc/ssh/sshd_config'],
+  }
+
 }
