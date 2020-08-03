@@ -51,11 +51,18 @@ class vision_base (
     notify  => Service['sshd'],
   }
 
-  service { 'sshd':
+  service { 'ssh':
     ensure     => running,
     enable     => true,
     hasrestart => true,
     require    => File['/etc/ssh/sshd_config'],
+  }
+
+  if $facts['is_virtual'] {
+    service { 'smartd':
+      ensure     => stopped,
+      enable     => false,
+    }
   }
 
 }
