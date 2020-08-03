@@ -48,7 +48,7 @@ class vision_base (
     ensure  => present,
     mode    => '0644',
     content => file('vision_base/sshd_config'),
-    notify => Service['sshd'],
+    notify  => Service['sshd'],
   }
 
   service { 'sshd':

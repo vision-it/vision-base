@@ -1,4 +1,4 @@
-# Class: vision_base
+# Class: vision_base::ntp
 # ===========================
 #
 # Parameters

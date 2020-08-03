@@ -31,11 +31,13 @@ class vision_base::puppet (
     include  => {
       'src' => false,
       'deb' => true,
-    }
+    },
+    notify   => Exec['apt_update']
   }
 
   package { 'puppet-agent':
     ensure  => present,
+    require => Apt::Source['puppetlabs'],
   }
 
   file { '/etc/puppetlabs/puppet/hiera.yaml':
