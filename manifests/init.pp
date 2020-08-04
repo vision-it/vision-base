@@ -29,6 +29,11 @@ class vision_base (
   # Docker Configuration
   # contain vision_base::docker
 
+  # Default Data Directory
+  file { '/data':
+    ensure  => directory,
+  }
+
   # Default values for any user
   $user_defaults = {
     ensure         => present,

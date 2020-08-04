@@ -12,6 +12,12 @@ describe 'vision_base' do
     end
   end
 
+  context 'Data directory' do
+    describe file('/data') do
+      it { is_expected.to be_directory }
+    end
+  end
+
   context 'Users provisioned' do
     describe user('rick') do
       it { should exist }
