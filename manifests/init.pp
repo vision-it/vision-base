@@ -24,6 +24,10 @@ class vision_base (
 
   # Puppet Configuration
   contain vision_base::puppet
+  # NTP Configuration
+  # contain vision_base::ntp
+  # Docker Configuration
+  # contain vision_base::docker
 
   # Default values for any user
   $user_defaults = {
@@ -44,11 +48,12 @@ class vision_base (
 
   create_resources('ssh_authorized_key', $authorized_keys, $key_defaults)
 
+  # SSH Config
   file { '/etc/ssh/sshd_config':
     ensure  => present,
     mode    => '0644',
     content => file('vision_base/sshd_config'),
-    notify  => Service['sshd'],
+    notify  => Service['ssh'],
   }
 
   service { 'ssh':
@@ -58,10 +63,11 @@ class vision_base (
     require    => File['/etc/ssh/sshd_config'],
   }
 
+  # No need for smartd on VMs
   if $facts['is_virtual'] {
     service { 'smartd':
-      ensure     => stopped,
-      enable     => false,
+      ensure => stopped,
+      enable => false,
     }
   }
 

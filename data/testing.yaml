@@ -1,5 +1,9 @@
 ---
 vision_base::puppet::environment: 'production'
+vision_base::ntp::servers:
+  - 'localhost'
+vision_base::ntp::restrictions:
+  - 'localhost'
 vision_base::authorized_keys:
   rick:
     type: 'ssh-ed25519'
