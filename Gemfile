@@ -1,32 +1,32 @@
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
-puppetversion = ENV.key?('PUPPET_VERSION') ? ENV['PUPPET_VERSION'] : ['6.7.2']
+puppetversion = ENV.key?('PUPPET_VERSION') ? ENV['PUPPET_VERSION'] : ['6.17.0']
 gem 'puppet', puppetversion
 
-gem 'puppetlabs_spec_helper', '2.13.1'
-gem 'rake', '12.3.3'
-gem 'rspec-puppet', '2.7.3'
+gem 'puppetlabs_spec_helper', '2.15.0'
+gem 'rake', '13.0.1'
+gem 'rspec-puppet', '2.7.10'
 
 group :rubocop do
-  gem 'rubocop', '0.65.0'
-  gem 'rubocop-rspec', '1.32.0'
+  gem 'rubocop', '0.89.1'
+  gem 'rubocop-rspec', '1.42.0'
 end
 
 group :testing do
   gem 'metadata-json-lint', '1.2.2'
-  gem 'rspec-puppet-facts', '1.8.0'
+  gem 'rspec-puppet-facts', '2.0.0'
 end
 
 group :acceptance do
-  gem 'serverspec',                         :require => false
-  gem 'beaker-docker',                      :require => false
-  gem 'beaker-puppet',                      :require => false
-  gem 'beaker-puppet_install_helper',       :require => false
-  gem 'beaker-rspec',                       :require => false
-  gem 'rbnacl', '>= 4',                     :require => false
-  gem 'rbnacl-libsodium',                   :require => false
-  gem 'bcrypt_pbkdf',                       :require => false
-  gem 'ed25519',                            :require => false
+  gem 'serverspec'
+  gem 'beaker-docker'
+  gem 'beaker-puppet'
+  gem 'beaker-puppet_install_helper'
+  gem 'beaker-rspec'
+  gem 'rbnacl', '>= 4'
+  gem 'rbnacl-libsodium'
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
 end
 
 group :development do
