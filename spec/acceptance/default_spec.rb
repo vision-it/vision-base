@@ -4,6 +4,8 @@ describe 'vision_base' do
   context 'with defaults' do
     it 'run idempotently' do
       pp = <<-FILE
+        class vision_base::docker () {}
+
         class { 'vision_base': }
       FILE
 

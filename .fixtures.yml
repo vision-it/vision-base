@@ -10,6 +10,9 @@ fixtures:
     apt:
       ref: "v7.4.2"
       repo: "https://github.com/puppetlabs/puppetlabs-apt"
+    docker:
+      ref: "v3.11.0"
+      repo: "https://github.com/puppetlabs/puppetlabs-docker"
     unattended_upgrades:
       ref: "v5.0.0"
       repo: "https://github.com/voxpupuli/puppet-unattended_upgrades"

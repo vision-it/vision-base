@@ -24,10 +24,12 @@ class vision_base (
 
   # Puppet Configuration
   contain vision_base::puppet
+
   # NTP Configuration
   # contain vision_base::ntp
+
   # Docker Configuration
-  # contain vision_base::docker
+  contain vision_base::docker
 
   # Default Data Directory
   file { '/data':
