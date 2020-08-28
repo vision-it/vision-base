@@ -40,6 +40,13 @@ class vision_base::puppet (
     require => Apt::Source['puppetlabs'],
   }
 
+  # Puppet is triggered via systemd Timer
+  service { 'puppet':
+    ensure  => stopped,
+    enable  => false,
+    require => Package['puppet-agent'],
+  }
+
   file { '/etc/puppetlabs/puppet/hiera.yaml':
     ensure  => present,
     mode    => '0644',
