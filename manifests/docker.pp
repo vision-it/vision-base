@@ -24,4 +24,8 @@ class vision_base::docker (
     registries => $registries,
   }
 
+  docker::plugin { 'grafana/loki-docker-driver:latest':
+    enabled      => true,
+    plugin_alias => 'loki',
+  }
 }
