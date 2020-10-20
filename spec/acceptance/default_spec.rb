@@ -14,17 +14,21 @@ describe 'vision_base' do
     end
   end
 
-  context 'Data directory' do
+  context 'Defaults' do
     describe file('/data') do
       it { is_expected.to be_directory }
+    end
+    describe file('/etc/profile.d/vision_defaults.sh') do
+      it { is_expected.to exist }
+      its(:content) { is_expected.to match 'Puppet' }
     end
   end
 
   context 'Users provisioned' do
     describe user('rick') do
-      it { should exist }
-      it { should have_home_directory '/home/rick' }
-      it { should have_authorized_key 'ssh-ed25519 aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==' }
+      it { is_expected.to exist }
+      it { is_expected.to have_home_directory '/home/rick' }
+      it { is_expected.to have_authorized_key 'ssh-ed25519 aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kUXc0dzlXZ1hjUQ==' }
     end
   end
 
