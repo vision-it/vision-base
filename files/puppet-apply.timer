@@ -1,0 +1,11 @@
+# This file is managed by Puppet
+# See man 7 systemd.time for possible formats
+
+[Unit]
+Description=Puppet Apply Timer
+[Timer]
+OnUnitActiveSec=4h
+OnStartupSec=300
+RandomizedDelaySec=120
+[Install]
+WantedBy=timers.target

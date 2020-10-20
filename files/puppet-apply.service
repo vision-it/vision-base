@@ -1,0 +1,16 @@
+# This file is managed by Puppet
+
+[Unit]
+Description=Puppet apply for masterless mode
+Documentation=https://puppet.com/docs/puppet/
+Requires=local-fs.target
+ConditionPathIsReadWrite=/etc/puppetlabs/code/environments
+ConditionFileIsExecutable=/usr/local/bin/g10k
+ConditionFileNotEmpty=/etc/g10k/g10k.yaml
+[Service]
+Type=oneshot
+SuccessExitStatus=0 2
+ExecStart= /usr/local/bin/g10k -maxworker 2 -config /etc/g10k/g10k.yaml && \
+           /opt/puppetlabs/bin/puppet apply --detailed-exitcodes /etc/puppetlabs/puppet/site.pp
+[Install]
+WantedBy=multi-user.target

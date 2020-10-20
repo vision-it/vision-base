@@ -68,6 +68,27 @@ class vision_base::puppet (
     require => Package['puppet-agent'],
   }
 
-  # TODO: Puppet Apply Timer
+  # Puppet Apply Timer
+  file { '/etc/systemd/system/puppet-apply.service':
+    ensure  => present,
+    content => file('vision_base/puppet-apply.service'),
+    notify  => Service['puppet-apply.timer'],
+  }
+
+  file { '/etc/systemd/system/puppet-apply.timer':
+    ensure  => present,
+    content => file('vision_base/puppet-apply.timer'),
+    notify  => Service['puppet-apply.timer'],
+  }
+
+  service { 'puppet-apply.timer':
+    ensure   => running,
+    enable   => true,
+    provider => 'systemd',
+    require  => [
+      File['/etc/systemd/system/puppet-apply.service'],
+      File['/etc/systemd/system/puppet-apply.timer'],
+    ],
+  }
 
 }
