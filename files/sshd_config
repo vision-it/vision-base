@@ -12,5 +12,4 @@ PubkeyAuthentication yes
 StrictModes yes
 SyslogFacility AUTH
 UsePAM yes
-UsePrivilegeSeparation yes
 X11Forwarding no
