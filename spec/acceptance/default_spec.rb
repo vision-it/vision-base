@@ -22,6 +22,9 @@ describe 'vision_base' do
       it { is_expected.to exist }
       its(:content) { is_expected.to match 'Puppet' }
     end
+    describe package('zile') do
+      it { is_expected.to be_installed }
+    end
   end
 
   context 'Users provisioned' do

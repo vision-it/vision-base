@@ -1,4 +1,6 @@
 ---
+vision_base::packages:
+  - 'zile'
 vision_base::puppet::environment: 'production'
 vision_base::ntp::servers:
   - 'localhost'

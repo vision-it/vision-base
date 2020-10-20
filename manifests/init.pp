@@ -15,6 +15,7 @@ class vision_base (
 
   Hash $users,
   Hash $authorized_keys,
+  Array $packages = [],
 
 ) {
 
@@ -41,6 +42,11 @@ class vision_base (
     ensure  => present,
     mode    => '0644',
     content => file('vision_base/profile.defaults.sh'),
+  }
+
+  # Default Packages
+  package { $packages:
+    ensure  => present,
   }
 
   # Default values for any user
