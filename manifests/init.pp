@@ -34,7 +34,7 @@ class vision_base (
 
   # Default Data Directory
   file { '/data':
-    ensure  => directory,
+    ensure => directory,
   }
 
   # Default Shell Config
@@ -46,14 +46,14 @@ class vision_base (
 
   # Default Packages
   package { $packages:
-    ensure  => present,
+    ensure => present,
   }
 
   # Default values for any user
   $user_defaults = {
-    ensure         => present,
-    managehome     => true,
-    groups         => [
+    ensure     => present,
+    managehome => true,
+    groups     => [
       'sudo',
       'adm',
     ]
@@ -85,9 +85,8 @@ class vision_base (
 
   # No need for smartd on VMs
   if $facts['is_virtual'] {
-    service { 'smartd':
-      ensure => stopped,
-      enable => false,
+    package { 'smartmontools':
+      ensure => absent,
     }
   }
 
