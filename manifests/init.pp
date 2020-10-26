@@ -4,6 +4,10 @@
 # Parameters
 # ----------
 #
+# @param users Users on the system
+# @param authorized_keys Authorized SSH keys for a given user
+# @param packages Apt packagest to install
+#
 # Examples
 # --------
 #

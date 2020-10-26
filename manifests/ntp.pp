@@ -4,6 +4,10 @@
 # Parameters
 # ----------
 #
+# @param servers List of NTP servers
+# @param restrictions Restrictions on our network
+# @param driftfile Path to dift file
+#
 # Examples
 # --------
 #

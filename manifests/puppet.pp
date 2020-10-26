@@ -6,6 +6,10 @@
 # Parameters
 # ----------
 #
+# @param environment Name of the default Puppet environment
+# @param repo_key Key of the Puppetlabs Apt repository
+# @param repo_key_id Key ID of the Puppetlabs Apt repository
+#
 # Examples
 # --------
 #
@@ -32,7 +36,7 @@ class vision_base::puppet (
       'src' => false,
       'deb' => true,
     },
-    notify   => Exec['apt_update']
+    notify   => Exec['apt_update'],
   }
 
   package { 'puppet-agent':
@@ -61,6 +65,7 @@ class vision_base::puppet (
     require => Package['puppet-agent'],
   }
 
+  # Main manifest which includes the node's role
   file { '/etc/puppetlabs/puppet/site.pp':
     ensure  => present,
     mode    => '0644',
@@ -68,7 +73,7 @@ class vision_base::puppet (
     require => Package['puppet-agent'],
   }
 
-  # Puppet Apply Timer
+  # Puppet apply Service and Timer
   file { '/etc/systemd/system/puppet-apply.service':
     ensure  => present,
     content => file('vision_base/puppet-apply.service'),
