@@ -2,7 +2,9 @@ require: rubocop-rspec
 AllCops:
   TargetRubyVersion: 2.5
   Include:
-    - ./**/*.rb
+    - spec/classes/*.rb
+    - spec/acceptance/*.rb
+    - spec/defines/*.rb
   Exclude:
     - Rakefile
     - Gemfile
@@ -34,7 +36,7 @@ Metrics/ClassLength:
 Metrics/CyclomaticComplexity:
   Enabled: False
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: False
 
 Metrics/AbcSize:
@@ -52,13 +54,25 @@ RSpec/NamedSubject:
 RSpec/RepeatedDescription:
   Enabled: False
 
+RSpec/RepeatedExampleGroupBody:
+  Enabled: False
+
 RSpec/NestedGroups:
   Enabled: False
 
 Security/YAMLLoad:
   Enabled: False
 
+RSpec/ContextWording:
+  Enabled: False
+
 RSpec/MultipleDescribes:
+  Enabled: False
+
+RSpec/EmptyLineAfterExampleGroup:
+  Enabled: False
+
+RSpec/EmptyLineAfterFinalLet:
   Enabled: False
 
 Layout/EmptyLinesAroundAttributeAccessor:
@@ -108,6 +122,9 @@ Lint/TopLevelReturnWithArgument:
 
 Lint/UnreachableLoop:
   Enabled: True
+
+Style/BlockDelimiters:
+  Enabled: false
 
 Style/AccessorGrouping:
   Enabled: True
