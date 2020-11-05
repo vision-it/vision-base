@@ -33,4 +33,25 @@ class vision_base::docker (
     plugin_alias => 'loki',
   }
 
+  file { '/etc/systemd/system/docker-system-prune.service':
+    ensure  => present,
+    content => file('vision_base/docker-system-prune.service'),
+    notify  => Service['docker-system-prune.timer'],
+  }
+
+  file { '/etc/systemd/system/docker-system-prune.timer':
+    ensure  => present,
+    content => file('vision_base/docker-system-prune.timer'),
+    notify  => Service['docker-system-prune.timer'],
+  }
+
+  service { 'docker-system-prune.timer':
+    ensure   => running,
+    enable   => true,
+    provider => 'systemd',
+    require  => [
+      File['/etc/systemd/system/docker-system-prune.timer'],
+      File['/etc/systemd/system/docker-system-prune.service'],
+    ],
+  }
 }

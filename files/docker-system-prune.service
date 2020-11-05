@@ -1,0 +1,14 @@
+[Unit]
+Description=clean up unused images and stopped docker containers
+Documentation=man:docker-system-prune(1)
+Documentation=man:docker(1)
+Requires=docker.service
+[Service]
+Type=oneshot
+# --force does not prompt for confirmation
+ExecStart=/usr/bin/docker system prune --force --all
+ProtectHome=yes
+ProtectKernelTunables=true
+ProtectSystem=full
+[Install]
+WantedBy=network.target
