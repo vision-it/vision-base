@@ -1,6 +1,6 @@
 # vision-base
 
-[![Build Status](https://travis-ci.org/vision-it/vision-base.svg?branch=development)](https://travis-ci.org/vision-it/vision-base)
+[![Build Status](https://travis-ci.com/vision-it/vision-base.svg?branch=development)](https://travis-ci.com/vision-it/vision-base)
 
 ## Parameter
 
