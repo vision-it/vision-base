@@ -72,6 +72,17 @@ class vision_base (
 
   create_resources('ssh_authorized_key', $authorized_keys, $key_defaults)
 
+  # sudoers config
+  package { 'sudo':
+    ensure  => present,
+  }
+
+  file { '/etc/sudoers.d/80_sudoers':
+    ensure  => present,
+    mode    => '0440',
+    content => file('vision_base/sudoers.d/80_sudoers'),
+  }
+
   # SSH Config
   file { '/etc/ssh/sshd_config':
     ensure  => present,
