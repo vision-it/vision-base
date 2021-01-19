@@ -30,8 +30,8 @@ class vision_base (
   # Puppet Configuration
   contain vision_base::puppet
 
-  # NTP Configuration
-  # contain vision_base::ntp
+  # Grub Configuration
+  contain vision_base::grub
 
   # Docker Configuration
   contain vision_base::docker
