@@ -5,6 +5,17 @@ require 'spec_helper_acceptance'
 describe 'vision_base' do
   context 'with defaults' do
     it 'run idempotently' do
+      setup = <<-FILE
+        file { '/etc/default/grub.d/':
+         ensure  => directory,
+        }
+        file { '/usr/sbin/update-grub':
+         ensure  => present,
+         mode    => '0744',
+        }
+      FILE
+      apply_manifest(setup, catch_failures: false)
+
       pp = <<-FILE
         class vision_base::docker () {}
 
@@ -105,6 +116,13 @@ describe 'vision_base' do
     end
     describe command('visudo -c') do
       its(:exit_status) { is_expected.to eq 0 }
+    end
+  end
+
+  context 'manage grub' do
+    describe file('/etc/default/grub.d/hugepages.cfg') do
+      its(:content) { is_expected.to match 'madvise' }
+      it { is_expected.to be_mode 644 }
     end
   end
 end
