@@ -93,6 +93,14 @@ describe 'vision_base' do
       its(:content) { is_expected.to match 'Puppet' }
       its(:content) { is_expected.to match 'role' }
     end
+    describe file('/etc/g10k/g10k.yaml') do
+      it { is_expected.to exist }
+      it { is_expected.to be_owned_by 'root' }
+      it { is_expected.to be_mode 644 }
+      its(:content) { is_expected.to match 'Puppet' }
+      its(:content) { is_expected.to match 'production' }
+      its(:content) { is_expected.to match 'foobar@git' }
+    end
     describe file('/etc/systemd/system/puppet-apply.timer') do
       it { is_expected.to be_file }
       its(:content) { is_expected.to match 'Puppet' }

@@ -2,6 +2,7 @@
 vision_base::packages:
   - 'zile'
 vision_base::puppet::environment: 'production'
+vision_base::puppet::control_path: 'ssh://foobar@git/path/to/control'
 vision_base::ntp::servers:
   - 'localhost'
 vision_base::ntp::restrictions:
