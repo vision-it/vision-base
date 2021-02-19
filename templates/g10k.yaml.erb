@@ -1,0 +1,9 @@
+# This file is managed by puppet; DO NOT EDIT
+---
+puppetfilelocation: '/etc/puppetlabs/code/environments/<%= @environment %>/Puppetfile'
+cachedir: '/var/lib/puppet/cache/r10k'
+sources:
+  puppet:
+    basedir: '/etc/puppetlabs/code/environments'
+    prefix: false
+    remote: '<%= @control_path %>'

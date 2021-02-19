@@ -7,6 +7,7 @@
 # ----------
 #
 # @param environment Name of the default Puppet environment
+# @param control_path SSH path to control repository (ssh://git@...)
 # @param repo_key Key of the Puppetlabs Apt repository
 # @param repo_key_id Key ID of the Puppetlabs Apt repository
 #
@@ -19,6 +20,7 @@
 
 class vision_base::puppet (
 
+  String $control_path,
   String $environment,
   String $repo_key,
   String $repo_key_id,
@@ -94,6 +96,20 @@ class vision_base::puppet (
       File['/etc/systemd/system/puppet-apply.service'],
       File['/etc/systemd/system/puppet-apply.timer'],
     ],
+  }
+
+  # g10k Configuration
+  file { '/etc/g10k/':
+    ensure  => directory,
+  }
+
+  file { '/etc/g10k/g10k.yaml':
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    content => template('vision_base/g10k.yaml.erb'),
+    require => File['/etc/g10k'],
   }
 
 }
