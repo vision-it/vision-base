@@ -20,6 +20,7 @@ class vision_base::docker (
 ) {
 
   class { '::docker':
+    extra_parameters => '--no-new-privileges=true --userland-proxy=false',
   }
 
   # For internal Docker registry
