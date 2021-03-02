@@ -24,6 +24,7 @@ describe 'vision_base' do
 
       # Systemd not functional in Docker
       apply_manifest(pp, catch_failures: false)
+      apply_manifest(pp, catch_failures: false)
     end
   end
 
@@ -124,6 +125,14 @@ describe 'vision_base' do
     end
     describe command('visudo -c') do
       its(:exit_status) { is_expected.to eq 0 }
+    end
+  end
+
+  context 'manage swap' do
+    describe file('/swap') do
+      it { is_expected.to exist }
+      it { is_expected.to be_owned_by 'root' }
+      it { is_expected.to be_mode 600 }
     end
   end
 
