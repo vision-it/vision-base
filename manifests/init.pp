@@ -33,6 +33,9 @@ class vision_base (
   # Grub Configuration
   contain vision_base::grub
 
+  # Swap Configuration
+  contain vision_base::swap
+
   # Docker Configuration
   contain vision_base::docker
 

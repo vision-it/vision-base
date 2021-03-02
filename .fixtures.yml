@@ -7,6 +7,9 @@ fixtures:
     sshkeys_core:
       ref: "2.2.0"
       repo: "https://github.com/puppetlabs/puppetlabs-sshkeys_core"
+    mount_core:
+      ref: "1.0.4"
+      repo: "https://github.com/puppetlabs/puppetlabs-mount_core"
     apt:
       ref: "v7.7.1"
       repo: "https://github.com/puppetlabs/puppetlabs-apt"
