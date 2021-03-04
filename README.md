@@ -1,6 +1,6 @@
 # vision-base
 
-[![Build Status](https://travis-ci.com/vision-it/vision-base.svg?branch=development)](https://travis-ci.com/vision-it/vision-base)
+[![Build Status](https://travis-ci.com/vision-it/vision-base.svg?branch=production)](https://travis-ci.com/vision-it/vision-base)
 
 ## Parameter
 
@@ -19,4 +19,3 @@ Include in a role/profile:
 ```puppet
 contain ::vision_base
 ```
-
