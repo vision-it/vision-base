@@ -19,6 +19,7 @@ class vision_base::docker (
 
 ) {
 
+  # Configure Daemon with better defaults
   class { '::docker':
     extra_parameters => '--no-new-privileges=true --userland-proxy=false',
   }
@@ -34,6 +35,7 @@ class vision_base::docker (
     plugin_alias => 'loki',
   }
 
+  # The docker-prune.service cleans up unused Docker images
   file { '/etc/systemd/system/docker-system-prune.service':
     ensure  => present,
     content => file('vision_base/docker-system-prune.service'),

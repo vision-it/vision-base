@@ -27,6 +27,7 @@ class vision_base::puppet (
 
 ) {
 
+  # Adding the Puppet Repo to get the newest version
   apt::source { 'puppetlabs':
     location => 'https://apt.puppetlabs.com',
     repos    => 'puppet6',
@@ -76,6 +77,7 @@ class vision_base::puppet (
   }
 
   # Puppet apply Service and Timer
+  # Since we use a masterless setup
   file { '/etc/systemd/system/puppet-apply.service':
     ensure  => present,
     content => file('vision_base/puppet-apply.service'),
@@ -99,6 +101,7 @@ class vision_base::puppet (
   }
 
   # g10k Configuration
+  # The tool is already in the system via cloud-ini
   file { '/etc/g10k/':
     ensure  => directory,
   }
