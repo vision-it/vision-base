@@ -61,7 +61,6 @@ class vision_base (
     ensure     => present,
     managehome => true,
     groups     => [
-      'sudo',
       'adm',
     ]
   }
