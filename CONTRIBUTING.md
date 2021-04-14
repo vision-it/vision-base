@@ -14,8 +14,8 @@ $ bundle install --path .bundle
 $ bundle exec rake
 $ bundle exec rake spec
 $ bundle exec rake lint
-$ bundle exec rake beaker
 $ bundle exec rake rubocop
+$ bundle exec rake beaker
 $ BEAKER_set=debian10 bundle exec rake beaker
 $ BEAKER_destroy=no BEAKER_set=debian10 bundle exec rake beaker
 ```
