@@ -54,9 +54,6 @@ RSpec/NamedSubject:
 RSpec/RepeatedDescription:
   Enabled: False
 
-RSpec/RepeatedExampleGroupBody:
-  Enabled: False
-
 RSpec/NestedGroups:
   Enabled: False
 
@@ -73,6 +70,9 @@ RSpec/EmptyLineAfterExampleGroup:
   Enabled: False
 
 RSpec/EmptyLineAfterFinalLet:
+  Enabled: False
+
+RSpec/RepeatedExampleGroupBody:
   Enabled: False
 
 Layout/EmptyLinesAroundAttributeAccessor:
@@ -122,9 +122,6 @@ Lint/TopLevelReturnWithArgument:
 
 Lint/UnreachableLoop:
   Enabled: True
-
-Style/BlockDelimiters:
-  Enabled: false
 
 Style/AccessorGrouping:
   Enabled: True
